@@ -2,7 +2,6 @@ import java.util.Random;
 import java.util.Scanner;
 import java.util.ArrayList;
 
-
 public class Lottery {
 
 	public static void main (String[] args) {
@@ -45,8 +44,6 @@ public class Lottery {
 
 				System.out.print(BallHolder.get(i) + " ");
 			}
-
-
 		}
 		
 		else if (prompt == 2) {
