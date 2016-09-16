@@ -15,10 +15,10 @@ public class Lottery {
 		Scanner scan = new Scanner(System.in);
 
 		int prompt = scan.nextInt();
-		
+
 		if (prompt == 1) {
 
-			BallHolder.add(80);
+			BallHolder.add(null);
 
 			for (int i = 0; i < 6; i++) {
 
@@ -45,14 +45,14 @@ public class Lottery {
 				System.out.print(BallHolder.get(i) + " ");
 			}
 		}
-		
+
 		else if (prompt == 2) {
 
 			System.out.println("Thanks for running this program");
 			System.exit(0);
-			
+
 		}
-		
+
 		else {
 
 			System.out.println("Incorrect option please try again.");
