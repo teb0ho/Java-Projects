@@ -17,30 +17,31 @@ public class Lottery {
 		int prompt = scan.nextInt();
 
 		if (prompt == 1) {
+			
+			BallHolder.add(null);
 
-				BallHolder.add(null);
+			for (int i = 0; i < 6; i++) {
 
-				for (int i = 0; i < 6; i++) {
+				gua = ballpicker.nextInt(50);
+				gua2 = ballpicker.nextInt(50);
 
-					gua = ballpicker.nextInt(50);
-					gua2 = ballpicker.nextInt(50);
+				if (!(BallHolder.contains(gua)) && gua > 0) {
 
-					if (!(BallHolder.contains(gua)) && gua > 0) {
+					BallHolder.add(gua);
 
-						BallHolder.add(gua);
+				} else if (!(BallHolder.contains(gua2)) && gua2 > 0) {
 
-					} else if (!(BallHolder.contains(gua2)) && gua2 > 0) {
+					BallHolder.add(gua2);
+				} else {
 
-						BallHolder.add(gua2);
-					} else {
-
-					}
 				}
+			}
 
-				for (int i = 1; i < BallHolder.size(); i++) {
+			for (int i = 1; i < BallHolder.size(); i++) {
 
-					System.out.print(BallHolder.get(i) + " ");
-				}
+				System.out.print(BallHolder.get(i) + " ");
+			
+			}
 
 		}
 
