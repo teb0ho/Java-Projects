@@ -12,50 +12,58 @@ public class Lottery {
 		int gua2 = 0;
 
 		System.out.println("Would you like to generate some numbers ? 1 = yes and 2 = no");
-		Scanner scan = new Scanner(System.in);
 
-		int prompt = scan.nextInt();
+		for (;;) {
 
-		if (prompt == 1) {
-			
-			BallHolder.add(null);
+			Scanner scan = new Scanner(System.in);
 
-			for (int i = 0; i < 6; i++) {
+			int prompt = scan.nextInt();
 
-				gua = ballpicker.nextInt(50);
-				gua2 = ballpicker.nextInt(50);
+			if (prompt == 1) {
 
-				if (!(BallHolder.contains(gua)) && gua > 0) {
+				BallHolder.add(null);
 
-					BallHolder.add(gua);
+				for (int i = 0; i < 6; i++) {
 
-				} else if (!(BallHolder.contains(gua2)) && gua2 > 0) {
+					gua = ballpicker.nextInt(50);
+					gua2 = ballpicker.nextInt(50);
 
-					BallHolder.add(gua2);
-				} else {
+					if (!(BallHolder.contains(gua)) && gua > 0) {
+
+						BallHolder.add(gua);
+
+					} else if (!(BallHolder.contains(gua2)) && gua2 > 0) {
+
+						BallHolder.add(gua2);
+
+					} else {
+
+					}
+				}
+
+				for (int i = 1; i < BallHolder.size(); i++) {
+
+					System.out.print(BallHolder.get(i) + " ");
 
 				}
+
+				System.out.println("\nPress 2 to quit, 1 to generate new numbers");
+				BallHolder.clear();
+
 			}
 
-			for (int i = 1; i < BallHolder.size(); i++) {
+			else if (prompt == 2) {
 
-				System.out.print(BallHolder.get(i) + " ");
-			
+				System.out.println("Thanks for running this program");
+				System.exit(0);
+
 			}
 
-		}
+			else {
 
-		else if (prompt == 2) {
+				System.out.println("Incorrect option please try again.");
 
-			System.out.println("Thanks for running this program");
-			System.exit(0);
-
-		}
-
-		else {
-
-			System.out.println("Incorrect option please try again.");
-
+			}
 		}
 	}
 }
