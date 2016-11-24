@@ -1,68 +1,172 @@
+import java.text.DateFormat;
+import java.text.SimpleDateFormat;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.ArrayList;
+import java.io.BufferedWriter;
+import java.io.FileWriter;
+import java.io.File;
+import java.util.Date;
 
-public class Lottery {
 
-	public static void main (String[] args) {
+/**
+ * Created by Teb0ho on 2016-11-24.
+ */
 
-		Random ballpicker = new Random();
-		ArrayList<Integer> BallHolder = new ArrayList<Integer>();
-		int gua = 0;
-		int gua2 = 0;
+public class lotteryv2 {
 
-		System.out.println("Would you like to generate some numbers ? 1 = yes and 2 = no");
+    static String lotto () {
 
-		try {
-			for (; ; ) {
+        String textLotto = "";
+        Random ballpicker = new Random();
+        ArrayList<Integer> BallHolder = new ArrayList<Integer>();
+        int rdmNum = 0;
+        int rdmNum1 = 0;
 
-				Scanner scan = new Scanner(System.in);
+        BallHolder.add(null);
 
-				int prompt = scan.nextInt();
+        for (int i = 0; i < 6; i++) {
 
-				if (prompt == 1) {
+            rdmNum = ballpicker.nextInt(50);
+            rdmNum1 = ballpicker.nextInt(50);
 
-					BallHolder.add(null);
+            if (!(BallHolder.contains(rdmNum)) && rdmNum > 0) {
 
-					for (int i = 0; i < 6; i++) {
+                BallHolder.add(rdmNum);
 
-						gua = ballpicker.nextInt(50);
-						gua2 = ballpicker.nextInt(50);
+            } else if (!(BallHolder.contains(rdmNum1)) && rdmNum1 > 0) {
 
-						if (!(BallHolder.contains(gua)) && gua > 0) {
+                BallHolder.add(rdmNum1);
 
-							BallHolder.add(gua);
+            }
+        }
 
-						} else if (!(BallHolder.contains(gua2)) && gua2 > 0) {
+        for (int i = 1; i < BallHolder.size(); i++) {
 
-							BallHolder.add(gua2);
+            textLotto+= BallHolder.get(i) + " ";
 
-						}
-					}
+        }
 
-					for (int i = 1; i < BallHolder.size(); i++) {
+        return textLotto;
+    }
 
-						System.out.print(BallHolder.get(i) + " ");
+    static String powerBall () {
 
-					}
+        String textPwrBall = "";
+        Random ballpicker = new Random();
+        ArrayList<Integer> BallHolder = new ArrayList<Integer>();
+        int rdmNum = 0;
+        int rdmNum1 = 0;
+        int pwrBall = 0;
 
-					System.out.println("\nPress 2 to quit, 1 to generate new numbers\n");
-					BallHolder.clear();
+        BallHolder.add(null);
 
-				} else if (prompt == 2) {
+        for (int i = 0; i < 5; i++) {
 
-					System.out.println("Thanks for running this program");
-					System.exit(0);
+            rdmNum = ballpicker.nextInt(50);
+            rdmNum1 = ballpicker.nextInt(50);
 
-				} else {
+            if (!(BallHolder.contains(rdmNum)) && rdmNum > 0) {
 
-					System.out.println("Incorrect option please try again.");
+                BallHolder.add(rdmNum);
 
-				}
-			}
-		}
-		catch (Exception e) {
-			System.out.println("Error - incorrect answer please enter the number 1 or 2 ");
-		}
-	}
+            } else if (!(BallHolder.contains(rdmNum1)) && rdmNum1 > 0) {
+
+                BallHolder.add(rdmNum1);
+
+            }
+        }
+
+        for (;;) {
+            pwrBall = ballpicker.nextInt(21);
+
+            if (pwrBall > 0) {
+                BallHolder.add(pwrBall);
+                break;
+            }
+        }
+
+        for (int i = 1; i < BallHolder.size(); i++) {
+
+            textPwrBall+= BallHolder.get(i) + " ";
+
+        }
+
+        return textPwrBall;
+
+    }
+
+    public static void main (String[] args) {
+
+        String textLotto;
+        String textPwrBall;
+        File file = new File("C:/Users/Teb0ho/workspace/Lottery/res/results.txt");
+        DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
+        Date date = new Date();
+
+        System.out.println("Would you like to generate some numbers ? 1 = yes and 2 = no");
+
+        try {
+            for (; ; ) {
+
+                Scanner scan = new Scanner(System.in);
+
+                int prompt = scan.nextInt();
+
+                if (prompt == 1) {
+
+                    System.out.println("Would you type of lotto numbers would you like to generate ? 1 = lotto 2 = Powerball");
+                    int lottoOpts = scan.nextInt();
+
+                    if (lottoOpts == 1) {
+                        textLotto = lotto();
+
+
+
+                        if(!file.exists()) {
+                            file.createNewFile();
+                        }
+
+                        FileWriter fileWriter = new FileWriter(file, true);
+                        BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+                        bufferedWriter.write(textLotto + "\tLotto\t\t" + dateFormat.format(date) + "\n");
+                        bufferedWriter.close();
+
+                        System.out.println(textLotto);
+                    }
+
+                    else if (lottoOpts == 2) {
+                        textPwrBall = powerBall();
+
+                        if(!file.exists()) {
+                            file.createNewFile();
+                        }
+
+                        FileWriter fileWriter = new FileWriter(file, true);
+                        BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
+                        bufferedWriter.write(textPwrBall + "\tPowerball\t" + dateFormat.format(date) + "\n");
+                        bufferedWriter.close();
+
+                        System.out.println(textPwrBall);
+                    }
+
+
+                    System.out.println("\nPress 2 to quit, 1 to generate new numbers\n");
+
+                } else if (prompt == 2) {
+
+                    System.out.println("Thanks for running this program");
+                    System.exit(0);
+
+                } else {
+
+                    System.out.println("Incorrect option please try again.");
+
+                }
+            }
+        }
+        catch (Exception e) {
+            System.out.println("Error - incorrect answer please enter the number 1 or 2 ");
+        }
+    }
 }
