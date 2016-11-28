@@ -12,7 +12,7 @@ import java.util.Date;
  * Created by Teb0ho on 2016-11-24 - 2016-11-28.
  */
 
-public class lottery {
+public class Lottery {
 
     static String lotto () {
 
