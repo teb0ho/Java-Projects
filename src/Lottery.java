@@ -8,12 +8,11 @@ import java.io.FileWriter;
 import java.io.File;
 import java.util.Date;
 
-
 /**
- * Created by Teb0ho on 2016-11-24.
+ * Created by Teb0ho on 2016-11-24 - 2016-11-28.
  */
 
-public class lotteryv2 {
+public class lottery {
 
     static String lotto () {
 
@@ -100,7 +99,7 @@ public class lotteryv2 {
 
         String textLotto;
         String textPwrBall;
-        File file = new File("C:/Users/Teb0ho/workspace/Lottery/res/results.txt");
+        File file = new File("res/results.txt").getAbsoluteFile();
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         Date date = new Date();
 
