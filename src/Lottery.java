@@ -165,7 +165,7 @@ public class Lottery {
             }
         }
         catch (Exception e) {
-            System.out.println("Error - incorrect answer please enter the number 1 or 2 ");
+            System.out.println("Error " + e.getMessage());
         }
     }
 }
