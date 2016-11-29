@@ -10,6 +10,11 @@ javac -d bin src/Lottery.java
 java -cp bin Lottery
 
 ```
+Or you can just run the compiled code as there is a class that is already compiled. By running the following command in the root directory.
+```
+java -cp bin Lottery
+```
+
 If the ```javac ``` command does not work on your CLI you might need set environment variables for your JDK.
 
 
