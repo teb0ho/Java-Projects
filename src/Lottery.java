@@ -222,7 +222,7 @@ public class lotteryv2 {
 
                 if (prompt == 1) {
 
-                    System.out.println("Would you type of lotto numbers would you like to generate ? 1 = lotto 2 = Powerball");
+                    System.out.println("What type of lotto numbers would you like to generate ? 1 = Standard Lotto 2 = Powerball");
                     int lottoOpts = scan.nextInt();
 
                     if (lottoOpts == 1) {
