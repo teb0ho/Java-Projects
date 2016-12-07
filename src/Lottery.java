@@ -15,7 +15,7 @@ import java.util.Date;
  * Created by Teb0ho on 2016-11-24 - 2016-12-03.
  */
 
-public class lotteryv2 {
+public class Lottery {
 
     String alphabet = "ABCDEFGHIJKLMNOPQRSTUVXWYZ";
     String[] letters = new String[] {"A","A"};
