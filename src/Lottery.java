@@ -51,7 +51,7 @@ public class Lottery {
         }
 
         catch (Exception e) {
-            System.out.println("1st order generated");
+            System.out.println("1st reference number generated");
         }
 
         finally {
