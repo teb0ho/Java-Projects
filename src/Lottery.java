@@ -205,7 +205,7 @@ public class Lottery {
         File file1 = new File("res/combos.txt");
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
         Date date = new Date();
-        lotteryv2 myLotObj = new lotteryv2();
+        Lottery myLotObj = new Lottery();
         BufferedReader br = null;
         FileReader fr = null;
 
