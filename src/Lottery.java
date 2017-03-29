@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 /**
- * Created by Teb0ho on 2016-11-24 - 2016-12-03.
+ * Created by Teb0ho on 2016-11-24 - 2016-03-29.
  */
 
 public class Lottery {
@@ -113,6 +113,11 @@ public class Lottery {
         catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    static void checkNums() {
+
+
     }
 
 
@@ -246,6 +251,7 @@ public class Lottery {
 
                         bufferedWriter.write(textLotto + "\tLotto\t\t" + dateFormat.format(date) + "\t" + sCurrentLine1 + "\n");
                         bufferedWriter.close();
+                        fileWriter.close();
 
                         System.out.println(textLotto);
                     }
@@ -270,6 +276,7 @@ public class Lottery {
                         }
                         bufferedWriter.write(textPwrBall + "\tPowerball\t" + dateFormat.format(date) + "\t" + sCurrentLine1 + "\n");
                         bufferedWriter.close();
+                        fileWriter.close();
 
                         System.out.println(textPwrBall);
                     }
@@ -289,6 +296,7 @@ public class Lottery {
                 }
             }
         }
+
         catch (Exception e) {
             System.out.println("Error - incorrect answer please enter the number 1 or 2 ");
         }
