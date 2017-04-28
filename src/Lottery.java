@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 /**
- * Created by Teb0ho on 2016-11-24 - 2016-03-29.
+ * Created by Teb0ho on 2016-11-24 - 2017-04-28.
  */
 
 public class Lottery {
@@ -127,25 +127,22 @@ public class Lottery {
         Random ballpicker = new Random();
         ArrayList<Integer> BallHolder = new ArrayList<Integer>();
         int rdmNum = 0;
-        int rdmNum1 = 0;
 
         BallHolder.add(null);
 
-        for (int i = 0; i < 6; i++) {
+        for (;;) {
 
             rdmNum = ballpicker.nextInt(50);
-            rdmNum1 = ballpicker.nextInt(50);
 
             if (!(BallHolder.contains(rdmNum)) && rdmNum > 0) {
-
                 BallHolder.add(rdmNum);
+            }
 
-            } else if (!(BallHolder.contains(rdmNum1)) && rdmNum1 > 0) {
-
-                BallHolder.add(rdmNum1);
-
+            if (BallHolder.size() == 7) {
+                break;
             }
         }
+
 
         for (int i = 1; i < BallHolder.size(); i++) {
 
@@ -162,24 +159,21 @@ public class Lottery {
         Random ballpicker = new Random();
         ArrayList<Integer> BallHolder = new ArrayList<Integer>();
         int rdmNum = 0;
-        int rdmNum1 = 0;
         int pwrBall = 0;
 
         BallHolder.add(null);
 
-        for (int i = 0; i < 5; i++) {
-
+        for (;;) {
             rdmNum = ballpicker.nextInt(50);
-            rdmNum1 = ballpicker.nextInt(50);
 
             if (!(BallHolder.contains(rdmNum)) && rdmNum > 0) {
 
                 BallHolder.add(rdmNum);
 
-            } else if (!(BallHolder.contains(rdmNum1)) && rdmNum1 > 0) {
+            }
 
-                BallHolder.add(rdmNum1);
-
+            if (BallHolder.size() == 6) {
+                break;
             }
         }
 
