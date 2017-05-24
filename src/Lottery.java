@@ -34,8 +34,7 @@ public class Lottery {
             fr = new FileReader(file);
             br = new BufferedReader(fr);
 
-            String sCurrentLine;
-            String sCurrentLine1 = "";
+            String sCurrentLine, sCurrentLine1 = "";
 
             br = new BufferedReader(new FileReader(file));
 
@@ -158,8 +157,7 @@ public class Lottery {
         String textPwrBall = "";
         Random ballpicker = new Random();
         ArrayList<Integer> BallHolder = new ArrayList<Integer>();
-        int rdmNum = 0;
-        int pwrBall = 0;
+        int rdmNum = 0, pwrBall = 0;
 
         BallHolder.add(null);
 
@@ -198,8 +196,7 @@ public class Lottery {
 
     public static void main (String[] args) {
 
-        String textLotto;
-        String textPwrBall;
+        String textLotto, textPwrBall;
         File file = new File("res/results.txt").getAbsoluteFile();
         File file1 = new File("res/combos.txt");
         DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
@@ -216,8 +213,7 @@ public class Lottery {
                 Scanner scan = new Scanner(System.in);
 
                 int prompt = scan.nextInt();
-                String sCurrentLine;
-                String sCurrentLine1 = "";
+                String sCurrentLine, sCurrentLine1 = "";
 
                 if (prompt == 1) {
 
