@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 /**
- * Created by Teb0ho on 2016-11-24 - 2017-04-28.
+ * Created by Teb0ho on 2016-11-24 - 2017-05-24.
  */
 
 public class Lottery {
@@ -125,6 +125,7 @@ public class Lottery {
         String textLotto = "";
         Random ballpicker = new Random();
         ArrayList<Integer> BallHolder = new ArrayList<Integer>();
+        String sBall, sBall1;
         int rdmNum = 0;
 
         BallHolder.add(null);
@@ -145,7 +146,15 @@ public class Lottery {
 
         for (int i = 1; i < BallHolder.size(); i++) {
 
-            textLotto+= BallHolder.get(i) + " ";
+            sBall = BallHolder.get(i).toString();
+
+            if (sBall.length() < 2)
+                sBall1 = "0" + sBall;
+            else
+                sBall1 = sBall;
+
+
+            textLotto+= sBall1 + " ";
 
         }
 
@@ -157,6 +166,7 @@ public class Lottery {
         String textPwrBall = "";
         Random ballpicker = new Random();
         ArrayList<Integer> BallHolder = new ArrayList<Integer>();
+        String sBall, sBall1;
         int rdmNum = 0, pwrBall = 0;
 
         BallHolder.add(null);
@@ -186,7 +196,14 @@ public class Lottery {
 
         for (int i = 1; i < BallHolder.size(); i++) {
 
-            textPwrBall+= BallHolder.get(i) + " ";
+            sBall = BallHolder.get(i).toString();
+
+            if (sBall.length() < 2)
+                sBall1 = "0" + sBall;
+            else
+                sBall1 = sBall;
+
+            textPwrBall+= sBall1 + " ";
 
         }
 
