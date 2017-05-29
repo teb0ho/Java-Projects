@@ -12,7 +12,7 @@ import java.util.ArrayList;
 import java.util.Date;
 
 /**
- * Created by Teb0ho on 2016-11-24 - 2017-05-26.
+ * Created by Teb0ho on 2016-11-24 - 2017-05-29.
  */
 
 public class Lottery {
@@ -148,12 +148,14 @@ public class Lottery {
         }
 
         if (counter != 0) {
-            System.out.print("You have: " + counter + " matche(s) the are: ");
+            System.out.print("You have: " + counter + " matche(s) they are: ");
 
             for (String x : matchedBalls) {
                 if (x != null)
                     System.out.print(x + " ");
+
             }
+            System.out.println();
         }
         else {
             System.out.println("You have zero matches.");
@@ -363,7 +365,10 @@ public class Lottery {
                         uNumbers[i] = sixNumbers1;
                     }
 
-                    checkNums(uNumbers,refNumber);
+                    checkNums(uNumbers, refNumber);
+
+                    System.out.println();
+                    System.out.println("Would you like to generate some numbers ? 1 = yes, 2 = no, 3 = check results");
                 }
 
                 else {
