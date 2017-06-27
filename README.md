@@ -17,7 +17,7 @@ java -cp bin Lottery
 
 If the ```javac ``` command does not work on your CLI you might need set environment variables for your JDK.
 
-###Folder Structure 
+### Folder Structure 
 
     LottoGenerator
     ├── bin
@@ -33,10 +33,10 @@ If the ```javac ``` command does not work on your CLI you might need set environ
     
 
 
-*** Fixed bugs *** 
+### *** Fixed bugs *** 
 * 0s are now excluded from the output.
 * Duplicate numbers are excluded from the output.
 
-*** Improvements ***
+### *** Improvements ***
 * Ability to choose Lotto or PowerBall numbers
 * Results are now saved in the res/results.txt file 
