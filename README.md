@@ -18,6 +18,7 @@ java -cp bin Lottery
 If the ```javac ``` command does not work on your CLI you might need set environment variables for your JDK.
 
 ###Folder Structure 
+
     LottoGenerator
     ├── bin
     │   └── Lottery.class
@@ -27,6 +28,8 @@ If the ```javac ``` command does not work on your CLI you might need set environ
     │   └── results.txt
     └── src
         └── Lottery.java
+
+    3 directories, 5 files
     
 
 
