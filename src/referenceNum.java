@@ -8,16 +8,16 @@ import java.io.FileWriter;
 
 class referenceNum {
 
-  private String alphabet = "ABCDEFGHIJKLMNOPQRSTUVXWYZ";
-  private String[] letters = {"A","A"};
+  String alphabet = "ABCDEFGHIJKLMNOPQRSTUVXWYZ";
+  String[] letters = {"A","A"};
 
-  private int number = 0;
-  private int number1 = -1;
+  int number = 0;
+  int number1 = -1;
 
-  private String combination = letters[0] + number + letters[1] + number1;
+  String combination = letters[0] + number + letters[1] + number1;
 
-  private File combos = new File("res/combos.txt").getAbsoluteFile();
-  private File results = new File("res/results.txt").getAbsoluteFile();
+  File combos = new File("res/combos.txt").getAbsoluteFile();
+  File results = new File("res/results.txt").getAbsoluteFile();
 
   public static void getNum() {
 
@@ -109,7 +109,7 @@ class referenceNum {
       }
   }
 
-  public static void checkNums(String[] result, String refNumber) throws IOException {
+  public static void checkNums(String[] result, String refNumber) {
 
       referenceNum obj = new referenceNum();
 
@@ -117,51 +117,71 @@ class referenceNum {
       int counter = 0, l = 0;
       String[] matchedBalls = new String[6];
 
-      FileReader fileReader = new FileReader(obj.results);
-      BufferedReader bufferedReader = new BufferedReader(fileReader);
+      try {
 
-      while ((currentLine = bufferedReader.readLine()) != null) {
-          currentLine1 = currentLine;
-          if (currentLine1.substring(currentLine1.length() - 4, currentLine1.length()).equals(refNumber.toUpperCase())) {
+          FileReader fileReader = new FileReader(obj.results);
+          BufferedReader bufferedReader = new BufferedReader(fileReader);
 
-              refBalls = currentLine1.substring(0,17);
-              break;
-          }
-      }
 
-      if (refBalls.isEmpty()) {
-          System.out.println("Your reference could not be found");
-      }
+          while ((currentLine = bufferedReader.readLine()) != null) {
+              currentLine1 = currentLine;
+              if (currentLine1.substring(currentLine1.length() - 4, currentLine1.length()).equals(refNumber.toUpperCase())) {
 
-      else {
-
-          for (int i = 0; i < 6; i++) {
-
-              if (refBalls.contains(result[i])) {
-                  matchedBalls[l] = result[i].trim();
-
-                  if (!matchedBalls[l].equals("0")) {
-                      counter++;
-                  }
-
-                  l++;
+                  refBalls = currentLine1.substring(0, 17);
+                  break;
               }
           }
-      }
 
-      if (counter != 0) {
-          System.out.print("You have: " + counter + " matche(s) they are: ");
-
-          for (String x : matchedBalls) {
-              if (x != null)
-                  System.out.print(x + " ");
-
+          if (refBalls.isEmpty()) {
+              System.out.println("Your reference could not be found");
           }
-          System.out.println();
-      }
-      else {
-          System.out.println("You have zero matches.");
-      }
-  }
+        
+          else {
 
+              for (int i = 0; i < 6; i++) {
+
+                  if (refBalls.contains(result[i])) {
+                      matchedBalls[l] = result[i].trim();
+
+                      if (!matchedBalls[l].equals("0")) {
+                          counter++;
+                      }
+
+                      l++;
+                  }
+              }
+          }
+
+          if (counter != 0) {
+              System.out.print("You have: " + counter + " matche(s) they are: ");
+
+              for (String x : matchedBalls) {
+                  if (x != null)
+                      System.out.print(x + " ");
+
+              }
+              System.out.println();
+          } 
+          
+          else {
+              System.out.println("You have zero matches.");
+          }
+      
+      }
+
+      catch (StringIndexOutOfBoundsException sE) {
+          System.out.println("Your reference could not be found please try again.");
+          return;
+      }
+      
+      catch (IOException e) {
+          e.printStackTrace();
+      }
+      
+      catch (Exception e) {
+          e.printStackTrace();
+      }
+    
+  }
+  
 }
