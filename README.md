@@ -5,7 +5,7 @@ A simple java console program that generates 6 lottery numbers at execution
 To ensure that this program executes hassle free execute the following commands from the root directory.
 
 ```
-javac -d bin src/Lottery.java
+javac -d bin src/*.java
 
 java -cp bin Lottery
 
@@ -21,15 +21,20 @@ If the ```javac ``` command does not work on your CLI you might need set environ
 
     LottoGenerator
     ├── bin
-    │   └── Lottery.class
+    │   ├── Lottery.class
+    │   ├── Num.class
+    │   └── referenceNum.class
     ├── README.md
     ├── res
     │   ├── combos.txt
     │   └── results.txt
     └── src
-        └── Lottery.java
+        ├── Lottery.java
+        ├── Num.java
+        └── referenceNum.java
 
-    3 directories, 5 files
+    3 directories, 9 files
+
     
 
 
