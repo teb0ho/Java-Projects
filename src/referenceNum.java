@@ -8,16 +8,16 @@ import java.io.FileWriter;
 
 class referenceNum {
 
-  String alphabet = "ABCDEFGHIJKLMNOPQRSTUVXWYZ";
-  String[] letters = {"A","A"};
+  private String alphabet = "ABCDEFGHIJKLMNOPQRSTUVXWYZ";
+  private String[] letters = {"A","A"};
 
-  int number = 0;
-  int number1 = -1;
+  private int number = 0;
+  private int number1 = -1;
 
-  String combination = letters[0] + number + letters[1] + number1;
+  private String combination = letters[0] + number + letters[1] + number1;
 
-  File combos = new File("res/combos.txt").getAbsoluteFile();
-  File results = new File("res/results.txt").getAbsoluteFile();
+  private File combos = new File("res/combos.txt").getAbsoluteFile();
+  private File results = new File("res/results.txt").getAbsoluteFile();
 
   public static void getNum() {
 
