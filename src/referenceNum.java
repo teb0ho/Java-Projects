@@ -8,40 +8,40 @@ import java.io.FileWriter;
 
 class referenceNum {
 
-  String alphabet = "ABCDEFGHIJKLMNOPQRSTUVXWYZ";
-  String[] letters = {"A","A"};
+  static String alphabet = "ABCDEFGHIJKLMNOPQRSTUVXWYZ";
+  static String[] letters = {"A","A"};
 
-  int number = 0;
-  int number1 = -1;
+  static int number = 0;
+  static int number1 = -1;
 
-  String combination = letters[0] + number + letters[1] + number1;
+  static String combination;
 
-  File combos = new File("res/combos.txt").getAbsoluteFile();
-  File results = new File("res/results.txt").getAbsoluteFile();
+  static File combos = new File("res/combos.txt").getAbsoluteFile();
+  static File results = new File("res/results.txt").getAbsoluteFile();
 
   public static void getNum() {
-
-      referenceNum obj = new referenceNum();
 
       BufferedReader br =  null;
       FileReader fr = null;
 
       try {
-          fr = new FileReader(obj.results);
+          fr = new FileReader(combos);
           br = new BufferedReader(fr);
 
           String sCurrentLine, sCurrentLine1 = "";
 
-          br = new BufferedReader(new FileReader(obj.results));
+          br = new BufferedReader(new FileReader(combos));
 
           while ((sCurrentLine = br.readLine()) != null) {
-              sCurrentLine1 = sCurrentLine;
+            sCurrentLine1 = sCurrentLine;
           }
 
-          obj.number1 = Character.getNumericValue(sCurrentLine1.charAt(3));
-          obj.letters[1] = String.valueOf(sCurrentLine1.charAt(2));
-          obj.number = Character.getNumericValue(sCurrentLine1.charAt(1));
-          obj.letters[0] = String.valueOf(sCurrentLine1.charAt(0));
+          number1 = Character.getNumericValue(sCurrentLine1.charAt(3));
+          letters[1] = String.valueOf(sCurrentLine1.charAt(2));
+          number = Character.getNumericValue(sCurrentLine1.charAt(1));
+          letters[0] = String.valueOf(sCurrentLine1.charAt(0));
+
+          combination = letters[0] + number + letters[1] + number1;
 
       }
 
@@ -64,42 +64,40 @@ class referenceNum {
 
   public static void genNums() {
 
-      referenceNum obj = new referenceNum();
+      if (!combination.contentEquals("Z9Z9")) {
+          number1++;
 
-      if (!obj.combination.contentEquals("Z9Z9")) {
-          obj.number1++;
-
-          if (obj.number1 > 9) {
-              int letterIndex = obj.alphabet.indexOf(obj.letters[1]) + 1;
-              if (letterIndex < obj.alphabet.length()) {
-                  obj.letters[1] = String.valueOf(obj.alphabet.charAt(letterIndex));
+          if (number1 > 9) {
+              int letterIndex = alphabet.indexOf(letters[1]) + 1;
+              if (letterIndex < alphabet.length()) {
+                  letters[1] = String.valueOf(alphabet.charAt(letterIndex));
               }
               else {
-                  obj.number++;
-                  obj.letters[1] = "A";
+                  number++;
+                  letters[1] = "A";
               }
-              obj.number1 = 0;
+              number1 = 0;
           }
 
-          if (obj.number > 9) {
-              int letterIndex = obj.alphabet.indexOf(obj.letters[0]) + 1;
-              if (letterIndex < obj.alphabet.length()) {
-                  obj.letters[0] = String.valueOf(obj.alphabet.charAt(letterIndex));
+          if (number > 9) {
+              int letterIndex = alphabet.indexOf(letters[0]) + 1;
+              if (letterIndex < alphabet.length()) {
+                  letters[0] = String.valueOf(alphabet.charAt(letterIndex));
               }
-              obj.number = 0;
+              number = 0;
           }
 
-          obj.combination = obj.letters[0] + obj.number + obj.letters[1] + obj.number1;
+          combination = letters[0] + number + letters[1] + number1;
       }
 
 
       try {
-          if (!obj.combos.exists())
-              obj.combos.createNewFile();
+          if (!combos.exists())
+              combos.createNewFile();
 
-          FileWriter fileWriter = new FileWriter(obj.combos);
+          FileWriter fileWriter = new FileWriter(combos);
           BufferedWriter bufferedWriter = new BufferedWriter(fileWriter);
-          bufferedWriter.write(obj.combination);
+          bufferedWriter.write(combination);
           bufferedWriter.close();
           fileWriter.close();
       }
@@ -111,15 +109,13 @@ class referenceNum {
 
   public static void checkNums(String[] result, String refNumber) {
 
-      referenceNum obj = new referenceNum();
-
       String currentLine, currentLine1, refBalls = "";
       int counter = 0, l = 0;
       String[] matchedBalls = new String[6];
 
       try {
 
-          FileReader fileReader = new FileReader(obj.results);
+          FileReader fileReader = new FileReader(results);
           BufferedReader bufferedReader = new BufferedReader(fileReader);
 
 
@@ -135,7 +131,7 @@ class referenceNum {
           if (refBalls.isEmpty()) {
               System.out.println("Your reference could not be found");
           }
-        
+
           else {
 
               for (int i = 0; i < 6; i++) {
@@ -161,27 +157,27 @@ class referenceNum {
 
               }
               System.out.println();
-          } 
-          
+          }
+
           else {
               System.out.println("You have zero matches.");
           }
-      
+
       }
 
       catch (StringIndexOutOfBoundsException sE) {
           System.out.println("Your reference could not be found please try again.");
           return;
       }
-      
+
       catch (IOException e) {
           e.printStackTrace();
       }
-      
+
       catch (Exception e) {
           e.printStackTrace();
       }
-    
+
   }
-  
+
 }
