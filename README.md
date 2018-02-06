@@ -4,14 +4,14 @@ A simple java console program that generates 6 lottery numbers at execution
 
 To ensure that this program executes hassle free execute the following commands from the root directory.
 
-```
+```bash
 javac -d bin src/*.java
 
 java -cp bin Lottery
 
 ```
 Or you can just run the compiled code as there is a class that is already compiled. By running the following command in the root directory.
-```
+```bash
 java -cp bin Lottery
 ```
 
