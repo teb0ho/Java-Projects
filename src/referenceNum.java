@@ -6,7 +6,7 @@ import java.io.FileReader;
 import java.io.FileWriter;
 
 
-class referenceNum {
+class ReferenceNum {
 
   static String alphabet = "ABCDEFGHIJKLMNOPQRSTUVXWYZ";
   static String[] letters = {"A","A"};
@@ -124,6 +124,7 @@ class referenceNum {
               if (currentLine1.substring(currentLine1.length() - 4, currentLine1.length()).equals(refNumber.toUpperCase())) {
 
                   refBalls = currentLine1.substring(0, 17);
+                  bufferedReader.close();
                   break;
               }
           }

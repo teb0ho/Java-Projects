@@ -48,8 +48,8 @@ public class Lottery {
 
                     if (lottoOpts == 1) {
                         textLotto = Num.lotto();
-                        referenceNum.getNum();
-                        referenceNum.genNums();
+                        ReferenceNum.getNum();
+                        ReferenceNum.genNums();
 
                         if(!file.exists())
                             file.createNewFile();
@@ -73,8 +73,8 @@ public class Lottery {
 
                     else if (lottoOpts == 2) {
                         textPwrBall = Num.powerBall();
-                        referenceNum.getNum();
-                        referenceNum.genNums();
+                        ReferenceNum.getNum();
+                        ReferenceNum.genNums();
 
                         if(!file.exists())
                             file.createNewFile();
@@ -131,7 +131,7 @@ public class Lottery {
                         uNumbers[i] = sixNumbers1;
                     }
 
-                    referenceNum.checkNums(uNumbers, refNumber);
+                    ReferenceNum.checkNums(uNumbers, refNumber);
 
                     System.out.println();
                     System.out.println("Would you like to generate some numbers ? 1 = yes, 2 = no, 3 = check results");
