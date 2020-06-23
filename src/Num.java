@@ -1,30 +1,28 @@
+package src;
+
 import java.util.Random;
 import java.util.ArrayList;
 
 class Num {
 
-  public static String lotto () {
+  static String lotto() {
 
-      String textLotto = "";
+      StringBuilder textLotto = new StringBuilder();
       Random ballpicker = new Random();
-      ArrayList<Integer> BallHolder = new ArrayList<Integer>();
+      ArrayList<Integer> BallHolder = new ArrayList<>();
       String sBall, sBall1;
-      int rdmNum = 0;
+      int rdmNum;
 
       BallHolder.add(null);
 
-      for (;;) {
-
+      do {
           rdmNum = ballpicker.nextInt(50);
 
           if (!(BallHolder.contains(rdmNum)) && rdmNum > 0)
               BallHolder.add(rdmNum);
 
 
-          if (BallHolder.size() == 7)
-              break;
-
-      }
+      } while (BallHolder.size() != 7);
 
 
       for (int i = 1; i < BallHolder.size(); i++) {
@@ -37,35 +35,31 @@ class Num {
               sBall1 = sBall;
 
 
-          textLotto+= sBall1 + " ";
+          textLotto.append(sBall1).append(" ");
 
       }
 
-      return textLotto;
+      return textLotto.toString();
   }
 
-  public static String powerBall () {
+  static String powerBall() {
 
-      String textPwrBall = "";
+      StringBuilder textPwrBall = new StringBuilder();
       Random ballpicker = new Random();
-      ArrayList<Integer> BallHolder = new ArrayList<Integer>();
+      ArrayList<Integer> BallHolder = new ArrayList<>();
       String sBall, sBall1;
-      int rdmNum = 0, pwrBall = 0;
+      int rdmNum, pwrBall;
 
       BallHolder.add(null);
 
-      for (;;) {
+      do {
           rdmNum = ballpicker.nextInt(50);
 
           if (!(BallHolder.contains(rdmNum)) && rdmNum > 0)
               BallHolder.add(rdmNum);
 
 
-
-          if (BallHolder.size() == 6)
-              break;
-
-      }
+      } while (BallHolder.size() != 6);
 
       for (;;) {
           pwrBall = ballpicker.nextInt(21);
@@ -85,11 +79,11 @@ class Num {
           else
               sBall1 = sBall;
 
-          textPwrBall+= sBall1 + " ";
+          textPwrBall.append(sBall1).append(" ");
 
       }
 
-      return textPwrBall;
+      return textPwrBall.toString();
 
   }
 

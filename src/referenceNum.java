@@ -1,6 +1,7 @@
+package src;
+
 import java.io.BufferedWriter;
 import java.io.BufferedReader;
-import java.io.IOException;
 import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
@@ -8,18 +9,18 @@ import java.io.FileWriter;
 
 class ReferenceNum {
 
-  static String alphabet = "ABCDEFGHIJKLMNOPQRSTUVXWYZ";
-  static String[] letters = {"A","A"};
+  private static String alphabet = "ABCDEFGHIJKLMNOPQRSTUVXWYZ";
+  private static String[] letters = {"A","A"};
 
-  static int number = 0;
-  static int number1 = -1;
+  private static int number = 0;
+  private static int number1 = -1;
 
-  static String combination;
+  private static String combination;
 
-  static File combos = new File("res/combos.txt").getAbsoluteFile();
-  static File results = new File("res/results.txt").getAbsoluteFile();
+  private static File combos = new File("res/combos.txt").getAbsoluteFile();
+  private static File results = new File("res/results.txt").getAbsoluteFile();
 
-  public static void getNum() {
+  static void getNum() {
 
       BufferedReader br =  null;
       FileReader fr = null;
@@ -62,7 +63,7 @@ class ReferenceNum {
       }
   }
 
-  public static void genNums() {
+  static void genNums() {
 
       if (!combination.contentEquals("Z9Z9")) {
           number1++;
@@ -107,7 +108,7 @@ class ReferenceNum {
       }
   }
 
-  public static void checkNums(String[] result, String refNumber) {
+  static void checkNums(String[] result, String refNumber) {
 
       String currentLine, currentLine1, refBalls = "";
       int counter = 0, l = 0;
@@ -121,7 +122,7 @@ class ReferenceNum {
 
           while ((currentLine = bufferedReader.readLine()) != null) {
               currentLine1 = currentLine;
-              if (currentLine1.substring(currentLine1.length() - 4, currentLine1.length()).equals(refNumber.toUpperCase())) {
+              if (currentLine1.substring(currentLine1.length() - 4).equals(refNumber.toUpperCase())) {
 
                   refBalls = currentLine1.substring(0, 17);
                   bufferedReader.close();
@@ -168,14 +169,7 @@ class ReferenceNum {
 
       catch (StringIndexOutOfBoundsException sE) {
           System.out.println("Your reference could not be found please try again.");
-          return;
-      }
-
-      catch (IOException e) {
-          e.printStackTrace();
-      }
-
-      catch (Exception e) {
+      } catch (Exception e) {
           e.printStackTrace();
       }
 
